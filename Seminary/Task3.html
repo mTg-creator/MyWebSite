@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Работа с формами</title>
+    <style>
+        body {
+                margin: 20px;
+                font-family: Arial, sans-serif;
+                background-color: #f5f5f5;
+            }
+        form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        max-width: 100%;
+        margin: 0 auto;
+        }
+        .column {
+        padding: 20px;
+        border: 1px solid #ccc;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        .column h2 {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .inline-options label {
+            display: inline-block;
+            margin-right: 5px;
+            font-weight: normal;
+        }
+        .submit-block {
+            width: 100%;
+            padding: 40px;
+            background: #f5f5f5;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #2d89ef;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1b5fa7;
+        }
+
+    </style>
+</head>
+<body>
+<form action="#" method="post">
+        <!-- Левая колонка -->
+        <div class="column">
+            <h2>Информация о студенте</h2>
+
+            <div class="form-group">
+                <label for="fio">ФИО студента</label>
+                <input
+                    type="text"
+                    id="fio"
+                    name="fio"
+                    maxlength="256"
+                    pattern="[А-Яа-яЁё]+ [А-Яа-яЁё]+ [А-Яа-яЁё]+"
+                    title="Введите ФИО кириллицей из 3 слов, например: Иванов Иван Иванович">
+            </div>
+
+            <div class="form-group">
+                <label for="course">Курс</label>
+                <input
+                    type="number"
+                    id="course"
+                    name="course"
+                    min="1"
+                    max="6">
+            </div>
+
+            <div class="form-group">
+                <label>Факультет</label>
+                <div class="inline-options">
+                    <label for="faculty-it">
+                        <input type="radio" id="faculty-it" name="faculty" value="it">
+                        ИСАУ
+                    </label>
+                    <label for="faculty-physics">
+                        <input type="radio" id="faculty-physics" name="faculty" value="physics">
+                        ИФИ
+                    </label>
+                    <label for="faculty-engineering">
+                        <input type="radio" id="faculty-engineering" name="faculty" value="engineering">
+                        ФЕИН
+                    </label>
+                    <label for="faculty-law">
+                          <input type="radio" id="faculty-law" name="faculty" value="law">
+                          ФСГН
+                      </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Электронная почта</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    maxlength="256">
+            </div>
+
+            <div class="form-group">
+                <label>Интересы</label>
+                <div class="inline-options">
+                    <label for="interest-tech">
+                        <input type="checkbox" id="interest-tech" name="interests" value="technology">
+                        Технологии
+                    </label>
+                    <label for="interest-psychology">
+                        <input type="checkbox" id="interest-psychology" name="interests" value="psychology">
+                        Психология
+                    </label>
+                    <label for="interest-literature">
+                        <input type="checkbox" id="interest-literature" name="interests" value="literature">
+                        Литература
+                    </label>
+                    <label for="interest-economy">
+                        <input type="checkbox" id="interest-economy" name="interests" value="economy">
+                        Экономика
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="group">Группа</label>
+                <input
+                    type="text"
+                    id="group"
+                    name="group"
+                    pattern="[0-9]{4}"
+                    title="Введите 4 цифры номера группы">
+            </div>
+        </div>
+
+        <!-- Правая колонка -->
+        <div class="column">
+            <h2>Информация о сдаче</h2>
+
+            <div class="form-group">
+                <label for="subject">Предмет для сдачи</label>
+                <select id="subject" name="subject">
+                    <option value="">Выберите предмет</option>
+                    <option value="math">Математика</option>
+                    <option value="programming">Программирование</option>
+                    <option value="physics">Физика</option>
+                    <option value="history">История</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="teacher">Преподаватель</label>
+                <input type="text" id="teacher" name="teacher">
+            </div>
+
+            <div class="form-group">
+                <label for="exam-date">Дата сдачи</label>
+                <input type="date" id="exam-date" name="exam-date">
+            </div>
+
+            <div class="form-group">
+                <label>Форма сдачи</label>
+                <div class="inline-options">
+                    <label><input type="radio" name="exam-format" value="offline"> Очная</label>
+                    <label><input type="radio" name="exam-format" value="online"> Дистанционная</label>
+                </div>
+            </div>
+        </div>
+</form>
+<div class="submit-block">
+        <button type="submit">Записаться</button>
+</div>
+
+</body>
+</html>
