@@ -3,28 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Работа с формами</title>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Lobster&display=swap" rel="stylesheet">
     <style>
-        body {
-                margin: 20px;
-                font-family: Arial, sans-serif;
-                background-color: #f5f5f5;
-            }
-        form {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        max-width: 100%;
-        margin: 0 auto;
-        }
-        .column {
-        padding: 20px;
-        border: 1px solid #ccc;
-        }
         * {
             box-sizing: border-box;
         }
+
+        body {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .column {
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: white;
+            border-radius: 10px;
+        }
+
         .column h2 {
             margin-top: 0;
+            color: #2d89ef;
         }
 
         .form-group {
@@ -36,15 +44,37 @@
             margin-bottom: 5px;
             font-weight: bold;
         }
+
         .inline-options label {
             display: inline-block;
-            margin-right: 5px;
+            margin-right: 8px;
             font-weight: normal;
         }
-        .submit-block {
+
+        input[type="text"],input[type="number"],input[type="email"],input[type="date"],
+        select {
             width: 100%;
-            padding: 40px;
-            background: #f5f5f5;
+            padding: 8px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+
+        /* Стили для правильного и неправильного ввода */
+        .check-field:valid {
+            border: 2px solid green;
+            background-color: #eafbea;
+        }
+
+        .check-field:invalid {
+            border: 2px solid red;
+            background-color: #fdeaea;
+        }
+
+        .submit-block {
+            grid-column: 1 / 3;
+            width: 100%;
+            padding: 20px;
             text-align: center;
         }
 
@@ -61,137 +91,180 @@
         button:hover {
             background-color: #1b5fa7;
         }
-
+        header{
+              font-family: "Lobster", sans-serif;
+              font-weight: 400;
+              font-size: 40px;
+              font-style: normal;
+              text-align: center;
+              }
     </style>
 </head>
 <body>
+
 <form action="#" method="post">
-        <!-- Левая колонка -->
-        <div class="column">
-            <h2>Информация о студенте</h2>
+    <div class="submit-block">
+        <header>
+            Записаться на зачет
+        </header>
+    </div>
 
-            <div class="form-group">
-                <label for="fio">ФИО студента</label>
-                <input
-                    type="text"
-                    id="fio"
-                    name="fio"
-                    maxlength="256"
-                    pattern="[А-Яа-яЁё]+ [А-Яа-яЁё]+ [А-Яа-яЁё]+"
-                    title="Введите ФИО кириллицей из 3 слов, например: Иванов Иван Иванович">
-            </div>
+    <!-- Левая колонка -->
+    <div class="column">
+        <h2>Информация о студенте</h2>
 
-            <div class="form-group">
-                <label for="course">Курс</label>
-                <input
-                    type="number"
-                    id="course"
-                    name="course"
-                    min="1"
-                    max="6">
-            </div>
+        <div class="form-group">
+            <label for="fio">ФИО студента</label>
+            <input
+                class="check-field"
+                type="text"
+                id="fio"
+                name="fio"
+                maxlength="256"
+                pattern="[А-Яа-яЁё]+ [А-Яа-яЁё]+ [А-Яа-яЁё]+"
+                placeholder="Иванов Иван Иванович"
+                title="Введите ФИО кириллицей из 3 слов, например: Иванов Иван Иванович"
+                required
+                autofocus>
+        </div>
 
-            <div class="form-group">
-                <label>Факультет</label>
-                <div class="inline-options">
-                    <label for="faculty-it">
-                        <input type="radio" id="faculty-it" name="faculty" value="it">
-                        ИСАУ
-                    </label>
-                    <label for="faculty-physics">
-                        <input type="radio" id="faculty-physics" name="faculty" value="physics">
-                        ИФИ
-                    </label>
-                    <label for="faculty-engineering">
-                        <input type="radio" id="faculty-engineering" name="faculty" value="engineering">
-                        ФЕИН
-                    </label>
-                    <label for="faculty-law">
-                          <input type="radio" id="faculty-law" name="faculty" value="law">
-                          ФСГН
-                      </label>
-                </div>
-            </div>
+        <div class="form-group">
+            <label for="course">Курс</label>
+            <input
+                type="number"
+                id="course"
+                name="course"
+                min="1"
+                max="6"
+                placeholder="Введите курс от 1 до 6"
+                title="Введите номер курса от 1 до 6">
+        </div>
 
-            <div class="form-group">
-                <label for="email">Электронная почта</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    maxlength="256">
-            </div>
-
-            <div class="form-group">
-                <label>Интересы</label>
-                <div class="inline-options">
-                    <label for="interest-tech">
-                        <input type="checkbox" id="interest-tech" name="interests" value="technology">
-                        Технологии
-                    </label>
-                    <label for="interest-psychology">
-                        <input type="checkbox" id="interest-psychology" name="interests" value="psychology">
-                        Психология
-                    </label>
-                    <label for="interest-literature">
-                        <input type="checkbox" id="interest-literature" name="interests" value="literature">
-                        Литература
-                    </label>
-                    <label for="interest-economy">
-                        <input type="checkbox" id="interest-economy" name="interests" value="economy">
-                        Экономика
-                    </label>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="group">Группа</label>
-                <input
-                    type="text"
-                    id="group"
-                    name="group"
-                    pattern="[0-9]{4}"
-                    title="Введите 4 цифры номера группы">
+        <div class="form-group">
+            <label>Факультет</label>
+            <div class="inline-options">
+                <label for="faculty-it">
+                    <input type="radio" id="faculty-it" name="faculty" value="it">
+                    ИСАУ
+                </label>
+                <label for="faculty-physics">
+                    <input type="radio" id="faculty-physics" name="faculty" value="physics">
+                    ИФИ
+                </label>
+                <label for="faculty-engineering">
+                    <input type="radio" id="faculty-engineering" name="faculty" value="engineering">
+                    ФЕИН
+                </label>
+                <label for="faculty-law">
+                    <input type="radio" id="faculty-law" name="faculty" value="law">
+                    ФСГН
+                </label>
             </div>
         </div>
 
-        <!-- Правая колонка -->
-        <div class="column">
-            <h2>Информация о сдаче</h2>
+        <div class="form-group">
+            <label for="email">Электронная почта</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                maxlength="256"
+                placeholder="example@mail.ru"
+                title="Введите адрес электронной почты">
+        </div>
 
-            <div class="form-group">
-                <label for="subject">Предмет для сдачи</label>
-                <select id="subject" name="subject">
-                    <option value="">Выберите предмет</option>
-                    <option value="math">Математика</option>
-                    <option value="programming">Программирование</option>
-                    <option value="physics">Физика</option>
-                    <option value="history">История</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="teacher">Преподаватель</label>
-                <input type="text" id="teacher" name="teacher">
-            </div>
-
-            <div class="form-group">
-                <label for="exam-date">Дата сдачи</label>
-                <input type="date" id="exam-date" name="exam-date">
-            </div>
-
-            <div class="form-group">
-                <label>Форма сдачи</label>
-                <div class="inline-options">
-                    <label><input type="radio" name="exam-format" value="offline"> Очная</label>
-                    <label><input type="radio" name="exam-format" value="online"> Дистанционная</label>
-                </div>
+        <div class="form-group">
+            <label>Интересы</label>
+            <div class="inline-options">
+                <label for="interest-tech">
+                    <input type="checkbox" id="interest-tech" name="interests" value="technology">
+                    Технологии
+                </label>
+                <label for="interest-psychology">
+                    <input type="checkbox" id="interest-psychology" name="interests" value="psychology">
+                    Психология
+                </label>
+                <label for="interest-literature">
+                    <input type="checkbox" id="interest-literature" name="interests" value="literature">
+                    Литература
+                </label>
+                <label for="interest-economy">
+                    <input type="checkbox" id="interest-economy" name="interests" value="economy">
+                    Экономика
+                </label>
             </div>
         </div>
-</form>
-<div class="submit-block">
+
+        <div class="form-group">
+            <label for="group">Группа</label>
+            <input
+                class="check-field"
+                type="text"
+                id="group"
+                name="group"
+                pattern="[0-9]{4}"
+                placeholder="Например: 1234"
+                title="Введите 4 цифры номера группы"
+                required>
+        </div>
+    </div>
+
+    <!-- Правая колонка -->
+    <div class="column">
+        <h2>Информация о сдаче</h2>
+
+        <div class="form-group">
+            <label for="subject">Предмет для сдачи</label>
+            <select id="subject" name="subject" title="Выберите предмет" required>
+                <option value="">Выберите предмет</option>
+                <option value="math">Математика</option>
+                <option value="programming">Программирование</option>
+                <option value="physics">Физика</option>
+                <option value="history">История</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="teacher">Преподаватель</label>
+            <input
+                class="check-field"
+                type="text"
+                id="teacher"
+                name="teacher"
+                maxlength="256"
+                pattern="[А-Яа-яЁё]+ [А-Яа-яЁё]+ [А-Яа-яЁё]+"
+                placeholder="Петров Петр Петрович"
+                title="Введите ФИО преподавателя кириллицей из 3 слов">
+        </div>
+
+        <div class="form-group">
+            <label for="exam-date">Дата сдачи</label>
+            <input
+                type="date"
+                id="exam-date"
+                name="exam-date"
+                title="Выберите дату сдачи">
+        </div>
+
+        <div class="form-group">
+            <label>Форма сдачи</label>
+            <div class="inline-options">
+                <label for="offline">
+                    <input type="radio" id="offline" name="exam-format" value="offline">
+                    Очная
+                </label>
+                <label for="online">
+                    <input type="radio" id="online" name="exam-format" value="online">
+                    Дистанционная
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="submit-block">
         <button type="submit">Записаться</button>
-</div>
+    </div>
+</form>
 
 </body>
 </html>
