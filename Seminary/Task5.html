@@ -84,6 +84,49 @@ h1 {
       border: none;
       border-top: 3px dashed #94a3b8;
     }
+   .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .card-description {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #2563eb;
+      text-align: center;
+    }
+
+    .buy-button {
+      margin-top: auto;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .buy-button:hover {
+      background: #1d4ed8;
+    }
   </style>
 </head>
 <body>
@@ -114,7 +157,52 @@ h1 {
       </div>
     </div>
   </div>
+  <hr class="divider" />
+<h1>Подписка</h1>
 
+  <div class="cards-row">
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/6188/6188570.png" alt="Бесплатно">
+      <div class="card-title">Бесплатно</div>
+      <div class="card-description">
+        500 токенов в месяц<br>
+        Поддержка контекста — нет<br>
+        Распознавание изображения — да<br>
+        Распознавание речи — да<br>
+        Интеллектуальность моделей — до 4/10
+      </div>
+      <div class="price">0 ₽ / мес</div>
+      <button class="buy-button">Купить</button>
+    </div>
+
+    <div class="card">
+      <img src="https://pngicon.net/file/uploads/zvezda.png" alt="Стандарт">
+      <div class="card-title">Стандарт</div>
+      <div class="card-description">
+        1200 токенов в месяц<br>
+        Поддержка контекста — да<br>
+        Распознавание изображения — да<br>
+        Распознавание речи — да<br>
+        Интеллектуальность моделей — до 6/10
+      </div>
+      <div class="price">299 ₽ / мес</div>
+      <button class="buy-button">Купить</button>
+    </div>
+
+    <div class="card">
+      <img src="https://png.pngtree.com/png-vector/20221101/ourmid/pngtree-vip-3d-golden-word-element-png-image_240239.png" alt="Премиум">
+      <div class="card-title">Премиум</div>
+      <div class="card-description">
+        2700 токенов в месяц<br>
+        Поддержка контекста — да<br>
+        Распознавание изображения — да<br>
+        Распознавание речи — да<br>
+        Интеллектуальность моделей — до 10/10
+      </div>
+      <div class="price">799 ₽ / мес</div>
+      <button class="buy-button">Купить</button>
+    </div>
+  </div>
   <hr class="divider" />
 </body>
 </html>
