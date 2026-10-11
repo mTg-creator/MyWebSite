@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верстка Flex и Grid, адаптивность</title>
+<style>
+h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+.cards-row {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 250px;
+      max-width: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #ffffff;
+      border: 2px solid #d1d5db;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #475569;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .name {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .description {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .slava-card {
+      background: rgb(76, 159, 219);
+    }
+
+    .slava-card .avatar {
+      background: rgb(4, 121, 204);
+    }
+
+    .lesha-card {
+      background: rgb(154, 205, 120);
+    }
+
+    .lesha-card .avatar {
+      background: rgb(94, 185, 70);
+    }
+
+    .matvey-card {
+      background: rgb(219, 150, 150);
+    }
+
+    .matvey-card .avatar {
+      background: rgb(200, 80, 80);
+    }
+    .divider {
+      margin: 50px auto 0;
+      width: 100%;
+      border: none;
+      border-top: 3px dashed #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <h1>Don't Starve Together Squad</h1>
+
+  <div class="cards-row">
+    <div class="card slava-card">
+      <div class="avatar">С</div>
+      <div class="name">Слава</div>
+      <div class="description">
+        Заготовки, кулинария, обустройство базы
+      </div>
+    </div>
+
+    <div class="card lesha-card">
+      <div class="avatar">Л</div>
+      <div class="name">Леша</div>
+      <div class="description">
+        Поиск и сбор ресурсов, определение текущей задачи
+      </div>
+    </div>
+
+    <div class="card matvey-card">
+      <div class="avatar">М</div>
+      <div class="name">Матвей</div>
+      <div class="description">
+        Подготовка к приходу босса, сражения, тактики
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+</body>
+</html>
