@@ -127,9 +127,179 @@ h1 {
     .buy-button:hover {
       background: #1d4ed8;
     }
-  </style>
+.collage-section {
+  padding: 40px 20px;
+}
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 120px);
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.photo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 12px;
+  font-size: 18px;
+}
+
+.big {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: #2563eb;
+}
+
+.medium-h {
+  grid-column: span 2;
+  grid-row: span 1;
+  background: #16a34a;
+}
+
+.medium-v {
+  grid-column: span 1;
+  grid-row: span 2;
+  background: #ea580c;
+}
+.small {
+  grid-column: span 1;
+  grid-row: span 1;
+  background: #7c3aed;
+}
+.grid-task-section {
+  padding: 40px 20px;
+}
+
+.grid-task-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 120px);
+  gap: 12px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 12px;
+}
+
+.main-photo {
+  background: #2563eb;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.empty-space {
+  grid-column-start: 4;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.vertical-photo {
+  background: #dc2626;
+  grid-column-start: 6;
+  grid-column-end: 7;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+.medium-1 {
+  background: #16a34a;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.medium-2 {
+  background: #ea580c;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 5;
+}
+.small-1 {
+  background: #7c3aed;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.small-2 {
+  background: #0891b2;
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.small-3 {
+  background: #ca8a04;
+  grid-column-start: 6;
+  grid-column-end: 7;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+@media (max-width: 768px) {
+  .cards-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .photo-grid > * {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  .layout-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .layout-grid > * {
+    grid-column-start: auto !important;
+    grid-column-end: auto !important;
+    grid-row-start: auto !important;
+    grid-row-end: auto !important;
+  }
+
+  .empty-space {
+    display: none;
+  }
+}
+
+</style>
 </head>
 <body>
+<section>
   <h1>Don't Starve Together Squad</h1>
 
   <div class="cards-row">
@@ -157,7 +327,11 @@ h1 {
       </div>
     </div>
   </div>
+</section>
+
   <hr class="divider" />
+
+<section>
 <h1>Подписка</h1>
 
   <div class="cards-row">
@@ -203,6 +377,44 @@ h1 {
       <button class="buy-button">Купить</button>
     </div>
   </div>
+</section>
   <hr class="divider" />
+
+<section class="collage-section">
+  <h1>Коллаж 4 × 4</h1>
+
+  <div class="photo-grid">
+    <div class="photo-item big">Большое фото 2×2</div>
+    <div class="photo-item medium-h">Среднее 2×1</div>
+    <div class="photo-item medium-v">Среднее 1×2</div>
+    <div class="photo-item medium-v">Среднее 1×2</div>
+    <div class="photo-item small">Маленькое 1×1</div>
+    <div class="photo-item medium-h">Среднее 2×1</div>
+    <div class="photo-item small">Маленькое 1×1</div>
+
+  </div>
+</section>
+
+  <hr class="divider" />
+
+<section class="grid-task-section">
+  <h1>Сетка 6 × 4</h1>
+
+  <div class="layout-grid">
+    <div class="grid-item main-photo">Main Photo 3×2</div>
+
+    <div class="empty-space"></div>
+
+    <div class="grid-item vertical-photo">Vertical 1×2</div>
+
+    <div class="grid-item medium-photo medium-1">Medium 2×1</div>
+    <div class="grid-item medium-photo medium-2">Medium 1×2</div>
+
+    <div class="grid-item small-photo small-1">Small 1×1</div>
+    <div class="grid-item small-photo small-2">Small 1×1</div>
+    <div class="grid-item small-photo small-3">Small 1×1</div>
+  </div>
+</section>
+
 </body>
 </html>
